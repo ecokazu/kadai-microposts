@@ -21,6 +21,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    //場所　vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegisterUsers.php
 
     /**
      * Where to redirect users after registration.

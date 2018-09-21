@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //191文字使える設定
+        \Schema::defaultStringLength(191);
     }
 
     /**
