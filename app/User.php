@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    
+    
+     public function microposts()
+    {
+        //リレー設定
+        return $this->hasMany(Micropost::class);
+    }
+    
+    
 }
