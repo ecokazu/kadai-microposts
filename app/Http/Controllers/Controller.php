@@ -13,12 +13,27 @@ class Controller extends BaseController
     
     
     public function counts($user) {
+        
+        //投稿記事のカウント
         $count_microposts = $user->microposts()->count();
+
+        //フォローフォロワー数のカウント
+        $count_followings = $user->followings()->count();
+
+        $count_followers = $user->followers()->count();
+
 
         return [
             'count_microposts' => $count_microposts,
+             'count_followings' => $count_followings,
+            'count_followers' => $count_followers,
+            
         ];
     }
+    
+    
+    
+    
     
     
 }
