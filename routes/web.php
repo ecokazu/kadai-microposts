@@ -12,7 +12,7 @@
 */
 
 
-//一旦MicropostsControllerに飛ばして、ログイン判定　その後users.showへ飛ばす
+//
 Route::get('/', 'MicropostsController@index');
 
 
@@ -29,11 +29,20 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
     
+    //フォロー
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'UserFollowController@store')->name('user.follow');
         Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
         Route::get('followings', 'UsersController@followings')->name('users.followings');
         Route::get('followers', 'UsersController@followers')->name('users.followers');
+    });
+    
+    //お気に入り
+     Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('favorite', 'FavoriteController@store')->name('Favorite.favorite');//お気に入りつける
+        Route::delete('unfavorite', 'FavoriteController@destroy')->name('Favorite.unfavorite');
+        Route::get('self_favorite', 'UsersController@self_favorite')->name('users.self_favorite');//自分の付けたお気に入りリスト
+        
     });
     
     

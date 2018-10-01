@@ -59,6 +59,7 @@ class UsersController extends Controller
             $data = [
                 'user' => $user,
                 'users' => $followers,
+                
             ];
     
             $data += $this->counts($user);
@@ -66,5 +67,29 @@ class UsersController extends Controller
             return view('users.followers', $data);
         }
 
+    
+    
+    //お気に入りの取得
+    public function self_favorite($id)
+    {
+         $user = User::find($id);
+         //お気に入りしているリストを返す
+         $self_favorites=$user->self_favorite()->paginate(10);
+         $data = [
+                'user' => $user,
+                'self_favorites' => $self_favorites,
+                
+                
+            ];
+            
+            $data += $this->counts($user);
+            
+            
+            return view('users.self_favorite', $data);
+    }
+    
+    
+    
+    
     
 }

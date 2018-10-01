@@ -1,3 +1,5 @@
+
+<!--投稿内容の表示-->
 <ul class="media-list">
 @foreach ($microposts as $micropost)
     <?php $user = $micropost->user; ?>
@@ -23,7 +25,11 @@
                 
                 
             </div>
+            <div><!--お気に入りボタン表示-->
             
+             @include('favorite.favorite_button', ['micropost' => $micropost])    
+                
+            </div>
         </div>
     </li>
 @endforeach

@@ -19,6 +19,7 @@
                             
                             <ul class="dropdown-menu">
                                 <li>{!! link_to_route('users.show', 'My profile', ['id' => Auth::id()]) !!}</li>
+                                <li role="presentation" class="{{ Request::is('users/*/self_favorite') ? 'active' : '' }}"><a href="{{ route('users.self_favorite', ['id' => $user->id]) }}">Favorites</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>{!! link_to_route('logout.get', 'Logout') !!}</li>
                             </ul>
