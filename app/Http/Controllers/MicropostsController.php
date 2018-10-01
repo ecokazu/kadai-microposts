@@ -63,7 +63,7 @@ class MicropostsController extends Controller
      }
     
     
-    //記事のお気に入り数を取得
+  
     
     
     

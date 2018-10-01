@@ -18,11 +18,11 @@ class Micropost extends Model
     }
     
     
-     public function post_favorite()
-    {
+   //  public function post_favorite()
+    //{
         //記事にお気に入りしている人リストを返す
-        return $this->belongsToMany(User::class, 'favorites', 'micropost_id','user_id')->withTimestamps();
-    }
+     //   return $this->belongsToMany(Micropost::class, 'favorites', 'micropost_id','user_id')->withTimestamps();
+    //}
     
     
     

@@ -36,11 +36,11 @@ class Controller extends BaseController
         ];
     }
     
-    public function post_counts($postId) {
-        
     
-    //記事にお気に入りしている数
-        $count_self_favorites = $postId->post_favorite()->count();
+    //記事にお気に入りしている数をとりたい
+    public function post_counts($postId) {
+    
+    $count_self_favorites = $postId->post_favorite()->count();
     
      return [
          'count_post_favorite' => $count_post_favorites,
